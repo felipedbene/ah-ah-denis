@@ -68,9 +68,9 @@ bash scripts/deploy-to-s3.sh
 ```
 
 This will:
-	•	Create an S3 bucket and configure permissions.
-	•	Deploy a CloudFront distribution using CloudFormation.
-	•	Upload your Godot-exported game files.
+	-	Create an S3 bucket and configure permissions.
+	-	Deploy a CloudFront distribution using CloudFormation.
+	-	Upload your Godot-exported game files.
 
 3️⃣ Get CloudFront URL
 
@@ -88,25 +88,18 @@ If you need to delete and redeploy everything, use:
 bash delete-and-redeploy.sh
 ```
 This will:
-	•	Destroy the existing S3 bucket and CloudFront distribution.
-	•	Recreate the infrastructure and re-upload files.
+	-	Destroy the existing S3 bucket and CloudFront distribution.
+	-	Recreate the infrastructure and re-upload files.
 
 Notes
-	•	CloudFront caching: If updates don’t appear, invalidate the cache:
+	-	CloudFront caching: If updates don’t appear, invalidate the cache:
 
 `aws cloudfront create-invalidation --distribution-id <DISTRIBUTION_ID> --paths "/*"`
 
 
-	•	Ensure AWS CLI is configured (aws configure).
-	•	Use a modern browser (Chrome, Firefox) for best performance.
+	-	Ensure AWS CLI is configured (aws configure).
+	-	Use a modern browser (Chrome, Firefox) for best performance.
 
-#Summary
-
-Step	Command
-1	Edit deploy-to-s3.sh to set the bucket name
-2	Run bash deploy-to-s3.sh to deploy everything
-3	Get CloudFront URL and access the game
-4	Run bash delete-and-redeploy.sh to reset everything
 
 🚀 Your Godot HTML5 game is now hosted and accessible via CloudFront!
 
