@@ -94,7 +94,9 @@ This will:
 Notes
 	-	CloudFront caching: If updates don’t appear, invalidate the cache:
 
-`aws cloudfront create-invalidation --distribution-id <DISTRIBUTION_ID> --paths "/*"`
+```bash
+aws cloudfront create-invalidation --distribution-id <DISTRIBUTION_ID> --paths "/*"
+```
 
 
 	-	Ensure AWS CLI is configured (aws configure).
@@ -102,6 +104,3 @@ Notes
 
 
 🚀 Your Godot HTML5 game is now hosted and accessible via CloudFront!
-
-
-This README provides a brief overview of the contents, explains how to run the server using the Python command, and includes some notes about potential issues and limitations. You can adjust it as needed based on any specific details about your game or additional setup requirements.
