@@ -1,17 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://7iiqkrgbkhag"]
+[gd_scene load_steps=8 format=3 uid="uid://7iiqkrgbkhag"]
 
 [ext_resource type="Texture2D" uid="uid://bj4mrtob2qia2" path="res://dennis1.png" id="1_acway"]
-[ext_resource type="Script" path="res://sprite_2d.gd" id="2_4sy7g"]
 [ext_resource type="Texture2D" uid="uid://0cjcwp7uki3g" path="res://brazo.png" id="3_bv4cg"]
 [ext_resource type="Script" path="res://brazo.gd" id="4_f7nnd"]
-[ext_resource type="Script" path="res://rich_text_label.gd" id="5_3hjij"]
+[ext_resource type="AudioStream" uid="uid://dfc82m64glevn" path="res://output.mp3" id="6_cmnv6"]
+[ext_resource type="Script" path="res://timer.gd" id="6_kgqmi"]
+[ext_resource type="Script" path="res://audio_stream_player.gd" id="7_q31g6"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_lept5"]
 
 [node name="Sprite2D" type="Sprite2D"]
 position = Vector2(536, 436)
 texture = ExtResource("1_acway")
-script = ExtResource("2_4sy7g")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("CanvasTexture_lept5")
 
 [node name="Brazo" type="Sprite2D" parent="." node_paths=PackedStringArray("arm")]
 position = Vector2(-18, 16)
@@ -22,11 +25,29 @@ script = ExtResource("4_f7nnd")
 arm = NodePath(".")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
+visible = false
 offset_left = 18.0
 offset_top = -143.0
-offset_right = 251.0
-offset_bottom = -113.0
+offset_right = 305.0
+offset_bottom = -97.0
 pivot_offset = Vector2(24, 31)
-text = "Ah Ah Ah, The Magic Words!"
+text = "                ! ! ! Ah-Ah-Ah ! ! !
+      You didn't say the Magic Word !"
 fit_content = true
-script = ExtResource("5_3hjij")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_cmnv6")
+playback_type = 1
+script = ExtResource("7_q31g6")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 64.0
+offset_top = -61.0
+offset_right = 216.0
+offset_bottom = -30.0
+text = "Start!"
+
+[node name="Timer" type="Timer" parent="."]
+script = ExtResource("6_kgqmi")
+
+[connection signal="pressed" from="Button" to="Brazo" method="_on_button_pressed"]
