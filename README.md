@@ -53,7 +53,7 @@ This guide automates the deployment of your Godot HTML5 game to AWS using:
 
 ## Quick Setup
 ### 0️⃣ Clone this repo via `git clone git@github.com:felipedbene/ah-ah-denis.git`
-
+- Simple CLI Interaction
 
 ### 1️⃣ Edit `scripts/deploy-to-s3.sh`
 - Open `deploy-to-s3.sh` and set your **bucket name** and **CloudFormation stack name**.
